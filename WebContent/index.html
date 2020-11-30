@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>I N F O R M Ǝ D</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet/less" type="text/css" href="styles.less" />
+	<script src="//cdn.jsdelivr.net/npm/less" ></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	
+	
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</head>
+<body>
+  
+  <!-- HEADER ----------------------------------------------------------------------->
+
+  <div class="header">
+    <div class="header_title">
+      <span class="main_title">INFORM<span id="flip_header_letter">E</span class="main_title">D</span>
+    </div>
+    <div class="login_regis_header">
+      <span id="register">Register</span>
+      <span id="login">Login</span>
+    </div>
+    <div class="logout_header">
+      <span id="logout">Logout</span>
+    </div>
+  </div>
+
+  <!-- STREAMER SEARCH -------------------------------------------------------------->
+
+  <div id="container"></div>
+    <!-- Streamer search bar -->
+    <p id="streamers_live"></p>
+
+    <div class="container_streamer_search">
+      <div id="streamer_search">
+          <input type="text" id="search_for_streamers" autocomplete="off" placeholder="Search for your favourite streamers!" class="form-control">
+      </div>
+        
+        <div class="list-group-mine">
+          <ul class="list-group" id="result"></ul>
+        </div>
+        
+    </div>
+    
+  <!-- STREAMER CARD -------------------------------------------------------------->
+
+    <div class="card">    
+  	<input type="checkbox" id="toggle-trigger" data-toggle="toggle" data-style="android" data-onstyle="success">
+    
+      <div class="streamer_card_left">
+        <img src="" id="streamer_card_left_image"> <!--320x400-->
+      </div>
+      <div class="streamer_card_right">
+        <ul class="streamer_title">
+          <li><h1 id="streamer_card_title"></h1></li>
+          <li><img src="https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/full/public/2017/04/24/verified.png" alt="verified_icon" class="verified"></li>
+        </ul>
+
+        <div id="close_streamer_card"><span>x</span></div>
+
+		
+
+        <div class="streamer_card_right_details">
+          <ul id="quick_streamer_stats">
+            <li id="streamer_card_right_view_stat">
+              <b id="streamer_viewer_count"></b></li>
+            <li name="last_game_category">Last Category: </li>
+          </ul>
+        </div>
+
+        <div class="streamer_card_right_bio">
+          <p id="streamer_bio"></p>
+        </div>
+        
+        <div class="streamer_buttons">
+          <a href="" name="streamer_stats" target="_blank" class="streamer_card_right_buttons">STREAMER STATS</a>
+          <a href="" name="most_popular_clips_link" target="_blank" class="streamer_card_right_buttons">MOST POPULAR CLIPS</a>
+        </div>
+
+        <div class="email_notification">
+          <span id="email_text">Want faster Twitch notifications?</span>
+        </div>
+
+        <div class="watch">
+          <a href="" name="watch" id="watch_button">WATCH ON INFORMƎD</a>
+        </div>
+
+      </div> <!-- end of streamer right -->
+
+      <input type="hidden" id="streamer_id" name="streamer_id_name">
+      <input type="hidden" id="clicked_reg" name="clicked_reg">
+
+    </div>  
+    
+    <!-- REGISTRATION -------------------------------------------------------------->
+
+    <div class="main-block">
+      <h1>RƎgistration</h1>
+      <form id="registerForm" name="registerForm" action="/registration">
+
+        <div id="hide_blur_overflow">
+          <p id="stay_">Stay</p>
+          
+          <div class="informed_text_register">
+            <div id="informed_" style="position: relative; margin: 0 auto; text-align: center">INFORMED
+              <div id="informed_e" style="position: absolute; top: 0; width: 100%"> INFORMƎD
+              </div>
+            </div>
+         </div>
+
+          <img src="https://img-s2.onedio.com/id-57b304edb9f1fd725f039d71/rev-0/w-900/h-631/f-gif/s-fe162a974856708b94b8640df5f471a9894f0e09.gif" alt="deku" id="deku_image">
+          <!-- <img src="https://blog.twitch.tv/assets/uploads/2b7d7c16a7794a8fb6e47c0e2b134908.gif" alt="deku" id="deku_image"> -->
+        </div>
+        <label id="icon" for="email"><i class="fas fa-envelope"></i></label>
+        <input type="text" name="email" placeholder="Email" required/>
+        <label id="icon" for="name"><i class="fas fa-user"></i></label>
+        <input type="text" name="name" id="regName" placeholder="Name" required/>
+        <label id="icon" for="password"><i class="fas fa-unlock-alt"></i></label>
+        <input type="password" name="password" placeholder="Password" required/>
+        <div class="gender">
+          <input type="radio" value="male" id="male" name="gender" checked/>
+          <label for="male" class="radio">Male</label>
+          <input type="radio" value="female" id="female" name="gender" />
+          <label for="female" class="radio">Female</label>
+        </div>
+        <div class="btn-block">
+          <p>By clicking Submit, you agree on our <a href="/mirshad_secret.html">Privacy Policy for INFORMƎD</a>.</p>
+          <button type="submit" id="submit_reg_button">Submit</button>
+        </div>
+      </form>
+      <div id="close_registration"><span>x</span></div>
+    </div>
+
+    <!-- LOGIN -------------------------------------------------------------->
+
+    <div class="login-main-block">
+      <h1>Login</h1>
+      <form id="loginForm" name="loginForm" action="/login">
+
+        <label id="icon" for="email"><i class="fas fa-envelope"></i></label>
+        <input type="text" name="email" id="email" placeholder="Email" required/>
+        <label id="icon" for="password"><i class="fas fa-user"></i></label>
+        <input type="password" name="password" id="password" placeholder="Password" required/>
+
+        <div class="btn-block">
+          <button type="login_btn" id="login_btn">Login</button>
+        </div>
+      </form>
+      <div id="close_login"><span>x</span></div>
+    </div>
+
+	<!-- Loading spinner -->
+	<div class="loader">
+		<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  </div>
+  
+  <!-- Streamers In Account -->
+  <input type="hidden" id="streamersOnAccount">
+    
+  <script src="src/searchStreamers.js"></script>
+  <script src="src/getStreamerInfo.js"></script>
+  <script src="src/addStreamer.js"></script>
+  <script src="src/buttonsAndExtras.js"></script>
+  <script src="src/submitForm.js"></script>    
+  </body>
+</html>

@@ -1,0 +1,865 @@
+@charset "UTF-8";
+
+/* background-color: rgb(58, 58, 58); */
+/*
+html {
+    height: 100%;
+}
+body {
+    overflow: scroll;
+    height: 100%;
+    margin: 0;
+
+    background: linear-gradient(270deg, #32196e, #1a0b38, #161616, #230c41);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    -o-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+*/
+
+html, body {
+    background-color: rgb(20,20,20);
+    margin: 0;
+    padding: 0;
+}
+
+/* ------ streamer search bar ------------------------------------------------------------ */
+
+.container_streamer_search {
+    z-index: 10;
+    padding: 0;
+    margin: auto;
+    position: absolute;
+    width: 400px;
+    height: 10px;
+    margin-left: 39.5%;
+    opacity: 0;
+    transition: width 0.5s;
+}
+
+#search_for_streamers::placeholder {
+    text-align: center;
+}
+
+.list-group { /* drop down for list of streamers */
+    backdrop-filter: blur(30px);
+    color: rgb(27, 27, 27);
+    height: 245px; 
+    overflow: scroll; 
+}
+
+.verified {
+    visibility: hidden;
+}
+
+.list-group-item {
+    padding-left: 13px;
+    color: rgb(218, 218, 218);
+    background-color: transparent;
+    border-top: 1px solid rgb(36, 36, 36);
+    border-left: none;
+    border-right: none;
+}
+
+span.streamer_display_name {
+    padding-left: 10px;
+    color: rgb(224, 224, 224);
+}
+
+.img-thumbnail{
+    border: none;
+    background: rgb(39, 39, 39);
+    width: 40px;
+    height: 40px;
+}
+
+.form-control {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: rgb(180, 180, 180);
+}
+
+.icon_live {
+    display: inline;
+    padding-left: 5px;
+}
+
+#live_streaming_icon {
+    margin-left: auto;
+    padding: 0 1% 0 1%;
+    width: 50px;
+    border: 2px solid rgb(247, 80, 80);
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: rgb(247, 80, 80);
+}
+
+#result {
+    opacity: 0;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 11;
+    border-bottom: 2px solid rgb(90, 58, 141);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ------ streamer card ------------------------------------------------------------  */
+
+.card {
+    width: 800px;
+    height: 400px;
+    background-color: rgba(7, 7, 7, 0.603);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
+    transition: opacity 0.1s;
+}
+
+#streamer_card_left_image {
+    width: 320px;
+    height: 400px;
+    object-fit: cover;
+}
+
+div.streamer_card_right {
+    padding-top: 15px;
+    width: 98%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+div.streamer_card_right_details ul li{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    padding: 0 30px 0 0;
+    font-size: 15px;
+    text-align:justify;
+    list-style-type: none;
+}
+
+#quick_streamer_stats{
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    width: 410px;
+    position: absolute;
+    overflow: scroll;
+}
+
+div.streamer_card_right_details{
+    margin-left: 347px;
+    color: rgb(110, 110, 110);
+    width: 100%;
+    height: 100%;
+}
+
+div.streamer_card_right ul.streamer_title {
+    color: white;
+    width: 100%;
+    padding-top: 21px;
+    padding-left: 44%;
+    position: absolute;
+    letter-spacing: 2px;
+}
+
+ul.streamer_title li {
+    position: relative;
+    display: inline-block;
+    text-align: justify;
+}
+
+div.streamer_card_right ul.streamer_title li img{
+    display: inline-block;
+    margin-bottom: 17px;
+    margin-left: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.streamer_card_right_bio {
+    color: rgb(82, 82, 82);
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 347px;
+    height: 85px;
+    width: 50%;
+    overflow: scroll; 
+    transition: color 0.1s;
+}
+
+.streamer_buttons {
+    position: relative;
+    z-index: 12;
+    margin-top: 27%;
+    margin-left: 340px;
+}
+
+.streamer_buttons a {
+    color: rgb(218, 218, 218);
+    text-decoration: none;
+}
+
+.streamer_card_right_buttons {
+    border-bottom: solid 1px rgb(100, 100, 100);
+    text-decoration: none;
+    padding:10px 10px 10px 10px;
+    transition: background-color 0.2s;
+    font-size:12px;
+    margin-left: 9px;
+}
+
+.streamer_card_right_buttons:hover {
+    color: rgb(88, 88, 88);
+    background-color: rgb(255, 255, 255);
+}
+
+.email_notification {
+    position: absolute;
+    width: 100%;
+    left: 20px;
+}
+
+#email_text {
+    color: rgb(109, 109, 109);
+    position: absolute;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 330px;
+}
+
+#close_streamer_card {
+    background-color: rgb(17, 17, 17);
+    position: absolute;
+    margin-left: 98%;
+    margin-top: -4px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    width: 30px;
+
+    transition: background-color 0.2s;
+}
+
+#close_streamer_card span {
+    bottom: 1px;
+    left: 10px;
+    position: relative;
+    color: rgb(97, 97, 97);
+}
+
+#close_streamer_card:hover {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+
+.watch {
+    position: relative;
+    z-index: 12;
+    margin-top: 12%;
+    margin-left: 350px;
+}
+
+.watch a {
+    text-decoration: none;
+    color: rgb(218, 218, 218);
+}
+
+#watch_button {
+	width: 100%;
+    border-bottom: solid 1px rgb(100, 100, 100);
+    text-decoration: none;
+    padding:10px 78px 10px 79px;
+    transition: background-color 0.2s;
+    font-size:12px;
+}
+
+#watch_button:hover {
+    color: rgb(88, 88, 88);
+    background-color: rgb(255, 255, 255);
+}
+
+/* ------ header ----------------------------------------------------------------------- */
+
+.header {
+    z-index: 0;
+    top: 0;
+    background-color: rgba(7, 7, 7, 0.336);
+    position: absolute;
+    width: 100%;
+}
+
+.header_title {
+    z-index: 1;
+    margin: auto;
+    padding: 6px;
+    transition: opacity 0.1s;
+}
+
+.main_title {
+    z-index: -1;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+#flip_header_letter {
+    position: relative;
+    margin-left: -9px;    
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    transform: scaleX(-1); /* Or also:   rotateY(180deg) */
+    -ms-filter: fliph;
+    filter: fliph;
+}
+
+.login_regis_header {
+    color: rgb(197, 197, 197);
+    position: absolute;
+    top: 5px;
+    margin-left: 86%;
+}
+
+#register {
+    width: 100px;
+    position: absolute;
+    padding: 10px;
+    border-bottom: solid 1px rgb(100, 100, 100);
+    text-align: center;
+    transition: background-color 0.1s;
+
+    cursor: pointer;
+}
+
+#login {
+    width: 100px;
+    position: absolute;
+    padding: 10px;
+    border-bottom: solid 1px rgb(100, 100, 100);
+    text-align: center;
+    transition: background-color 0.1s;
+
+    margin-left: 100px;
+
+    cursor: pointer;
+}
+
+#register:hover {
+    background-color: white;
+    color: rgb(88, 88, 88);
+}
+
+#login:hover {
+    background-color: white;
+    color: rgb(88, 88, 88);
+}
+
+.logout_header {
+    visibility: hidden;
+    color: rgb(197, 197, 197);
+    position: absolute;
+    top: 5px;
+    margin-left: 86%;
+}
+
+#logout {
+    width: 100px;
+    position: absolute;
+    padding: 10px;
+    border-bottom: solid 1px rgb(100, 100, 100);
+    text-align: center;
+    transition: background-color 0.1s;
+
+    margin-left: 100px;
+
+    cursor: pointer;
+}
+
+#logout:hover {
+    background-color: white;
+    color: rgb(88, 88, 88);
+}
+
+/* ------ register form ------------------------------------------------------------ */
+
+.main-block {
+    visibility: hidden;
+    z-index: 13;
+    opacity: 1;
+    color: rgb(153, 153, 153);
+    padding: 0;
+    margin: auto;
+    top: 20%;
+    right: 36%;
+    position: absolute;
+}
+
+.main-block h1 {
+    font-size: 27px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 300;
+    text-align: center;
+}
+.main-block p {
+    font-size: 12px;
+}
+.main-block {
+    max-width: 340px; 
+    min-height: 380px; 
+    padding: 10px 0;
+    margin: auto;
+    border: none;
+    background-color: rgba(7, 7, 7, 0.603);
+    border-radius: 12px;
+    padding: 0;
+}
+.main-block form {
+    margin: 0 30px;
+}
+.main-block input[type=radio] {
+    display: none;
+}
+label#icon {
+    margin: 0;
+}
+label.radio {
+    font-size: 12px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 10;
+    margin: 5px;
+    display: inline-block;
+    margin-right: 30px;
+    text-indent: 25px;
+    overflow: visible;
+    cursor: pointer;
+}
+label.radio:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background: #00000075;
+}
+label.radio:after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 4px;
+    top: 8px;
+    left: 4px;
+    border: 3px solid white;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+input[type=radio]:checked + label:after {
+    opacity: 1;
+}
+
+.main-block input[type=text], input[type=password] {
+    outline: none;
+    color: rgb(202, 202, 202);
+    width: calc(100% - 57px);
+    height: 36px;
+    margin: 13px 0 0 -5px;
+    padding-left: 10px; 
+    border: none; 
+    background: #2222222d; 
+}
+
+.main-block input[type=text], input[type=password]::placeholder {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.main-block input[type=password] {
+    margin-bottom: 15px;
+}
+.main-block #icon {
+    display: inline-block;
+    padding: 9.3px 15px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+    background: #24242475;
+    color: #fff;
+    text-align: center;
+}
+.main-block .btn-block {
+    margin-top: 10px;
+    text-align: center;
+}
+.main-block button {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 10px 0;
+    margin: 10px auto;
+    border: none;
+    background: #44434700;
+    border-bottom: 1px solid rgb(82, 82, 82);
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.main-block button:hover {
+    background-color: white;
+    color: rgb(88, 88, 88);
+}
+
+#close_registration {
+    margin-left: 93%;
+    top: 20px;
+    background-color: rgb(17, 17, 17);
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    width: 30px;
+
+    transition: background-color 0.2s;
+}
+
+#close_registration span {
+    bottom: 1px;
+    left: 10px;
+    position: relative;
+    color: rgb(97, 97, 97);
+}
+
+#close_registration:hover {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+
+#deku_image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 14;
+    padding: 0;
+    position: absolute;
+
+    transition: filter 5s;
+    transition: transform 5s;
+}
+
+#deku_image.start {
+    filter: blur(3px);
+    transform: scale(1.1);
+}
+
+#hide_blur_overflow {
+    top: 0;
+    width: 240px; 
+    height: 380px;  
+    right: 330px;
+    position: absolute;
+    overflow: hidden;
+
+    transition: filter 3s;
+}
+
+#hide_blur_overflow.start {
+    filter: contrast(100);
+    filter: grayscale(100%);
+}
+
+.informed_text_register {
+    visibility: hidden;
+    top: 200px;
+    text-shadow: 2px 2px #060606;
+    font-size: 30px;
+    letter-spacing: 5px;
+    width: 100%;
+    color: white;
+    z-index: 20;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+}
+
+#informed_e {
+    visibility: hidden;
+}
+
+#stay_ {
+    visibility: hidden;
+    font-style: oblique;
+    text-shadow: 3px 3px #060606;
+    top: 100px;
+    text-align: center;
+    color: white;
+    z-index: 20;
+    position: absolute;
+    padding: 0;
+    margin: 0 auto;
+    letter-spacing: 10px;
+    font-size: 50px;
+    text-transform: uppercase;
+    width: 100%;
+
+    transition: top 1s;
+}
+
+#stay_.start {
+    visibility: visible;
+    top: 130px;
+}
+
+/* ------ login form ------------------------------------------------------------ */
+
+.login-main-block {
+    visibility: hidden;
+    z-index: 13;
+    opacity: 1;
+    color: rgb(153, 153, 153);
+    padding: 0;
+    margin: auto;
+    top: 7%;
+    left: 80%;
+    position: absolute;
+}
+
+.login-main-block h1 {
+    font-size: 27px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.login-main-block p {
+    font-size: 12px;
+}
+.login-main-block {
+    max-width: 340px; 
+    min-height: 260px; 
+    padding: 10px 0;
+    margin: auto;
+    border: none;
+    background-color: rgba(7, 7, 7, 0.603);
+    border-radius: 12px;
+    padding: 0;
+}
+.login-main-block form {
+    margin: 0 30px;
+}
+.login-main-block input[type=radio] {
+    display: none;
+}
+
+.login-main-block input[type=text], input[type=password] {
+    outline: none;
+    color: rgb(202, 202, 202);
+    width: calc(100% - 57px);
+    height: 36px;
+    margin: 13px 0 0 -5px;
+    padding-left: 10px; 
+    border: none; 
+    background: #2222222d; 
+}
+
+.login-main-block input[type=text], input[type=password]::placeholder {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.login-main-block input[type=password] {
+    margin-bottom: 15px;
+}
+.login-main-block #icon {
+    display: inline-block;
+    padding: 9.3px 15px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+    background: #24242475;
+    color: #fff;
+    text-align: center;
+}
+.login-main-block .btn-block {
+    margin-top: 10px;
+    text-align: center;
+}
+.login-main-block button {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 10px 0;
+    margin: 10px auto;
+    border: none;
+    background: #44434700;
+    border-bottom: 1px solid rgb(82, 82, 82);
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.login-main-block button:hover {
+    background-color: white;
+    color: rgb(88, 88, 88);
+}
+
+#close_login {
+    margin-left: 93%;
+    top: 20px;
+    background-color: rgb(17, 17, 17);
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 30px;
+    width: 30px;
+
+    transition: background-color 0.2s;
+}
+
+#close_login span {
+    bottom: 1px;
+    left: 10px;
+    position: relative;
+    color: rgb(97, 97, 97);
+}
+
+#close_login:hover {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+
+/* ------ Loading spin ------------------------------------------------------------ */
+
+.loader {
+	z-index: 9999;
+	visibility: hidden;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------ Streamer notification button ------------------------------------------------------------ */
+
+.toggle.android { 
+	z-index: 9999;
+	position: absolute;
+	top: 288px;
+	margin-left: 73%;
+	border-radius: 0px;
+}
+.toggle.android .toggle-handle { 
+	border-radius: 0px;
+}
+
+/* ------ Twitch Player ---------------------------------------------------------------------------- */
+
+div.twitch_player_and_chat{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#twitch-embed{
+    flex: 1;
+}
+
+.divider {
+    background-color: rgb(53, 26, 186);
+    right: 2px;
+    cursor: ew-resize;
+}
+
+.divider:hover {
+    opacity: 1;
+}
+
+#twitch_chat_embed {
+    right: 10px;
+    flex: 3;
+}

@@ -1,6 +1,6 @@
 # I N F O R M Ǝ D
 
-<br>
+<img src="https://pngimg.com/uploads/twitch/twitch_PNG6.png" width=170>
 
 ## What is INFORMED?
 
